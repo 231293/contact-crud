@@ -1,0 +1,21 @@
+<table style="padding: 8px" class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"><a [routerLink]="['/add-contact']"> Add Contact </a></th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts; index as i">
+            <th scope="row">
+                <button class="btn btn-link" [routerLink]="['/edit-contact', contact.id]">Edit</button>
+                <button class="btn btn-link" (click)="onDeleteContact(contact.id)">Delete</button>
+            </th>
+            <td>
+                {{ contact.name }}
+            </td>
+            <td>{{ contact.phoneNumber }}</td>
+        </tr>
+    </tbody>
+</table>
